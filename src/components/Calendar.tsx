@@ -159,6 +159,14 @@ export const Calendar: React.FC = () => {
     return format(zonedTime, 'h:mm a zzz', { timeZone: TIMEZONE });
   }, []);
 
+  // Subscribe URL for calendar apps
+  const subscribeUrl = 'https://raw.githubusercontent.com/dwumfour-io/inside-the-nba/main/public/inside-the-nba.ics';
+  
+  const copySubscribeUrl = useCallback(() => {
+    navigator.clipboard.writeText(subscribeUrl);
+    alert('Calendar URL copied! Paste this in your calendar app to subscribe.');
+  }, []);
+
   const monthYear = format(currentDate, 'MMMM yyyy');
   const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
@@ -171,9 +179,15 @@ export const Calendar: React.FC = () => {
           <span className="nba-logo">🏀</span>
         </div>
         <p className="season-info">2025-26 Season • ESPN • All times ET ({currentTimeET})</p>
-        <button onClick={downloadFullCalendar} className="download-button">
-          📅 Download Full Schedule (.ics)
-        </button>
+        <div className="header-buttons">
+          <button onClick={copySubscribeUrl} className="subscribe-button">
+            🔗 Subscribe to Calendar
+          </button>
+          <button onClick={downloadFullCalendar} className="download-button">
+            📅 Download (.ics)
+          </button>
+        </div>
+        <p className="subscribe-info">Subscribe = auto-updates & easy unsubscribe</p>
       </div>
 
       <div className="calendar-controls">

@@ -12,7 +12,11 @@
 .nba-logo { font-size: 2.5rem; }
 .calendar-header h1 { margin: 0; font-size: 2.2rem; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
 .season-info { margin: 10px 0 20px 0; color: rgba(255,255,255,0.9); font-size: 1.1rem; font-weight: 500; }
+.header-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.subscribe-button { padding: 12px 24px; background: #fff; color: #17408b; border: 3px solid #fff; border-radius: 50px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+.subscribe-button:hover { background: #17408b; color: #fff; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
 .download-button { padding: 12px 24px; background: #c9082a; color: #fff; border: 3px solid #fff; border-radius: 50px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+.subscribe-info { margin: 15px 0 0 0; color: rgba(255,255,255,0.7); font-size: 0.9rem; font-style: italic; }
 .download-button:hover { background: #fff; color: #c9082a; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
 .calendar-controls { display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
 .nav-button, .today-button { padding: 12px 24px; border: 2px solid #fff; background: transparent; color: #fff; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: all 0.3s ease; }
