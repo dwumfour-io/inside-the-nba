@@ -50,3 +50,5 @@
 .reminder-btn.apple { background: #1a1a1a; color: #fff; }
 .reminder-btn.apple:hover { background: #333; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
 .episode-count { display: inline-block; background: linear-gradient(90deg, #17408b 0%, #c9082a 100%); color: white; padding: 4px 8px; border-radius: 6px; font-size: 0.65rem; font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,0.3); line-height: 1.2; }
+.toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #17408b; color: #fff; padding: 15px 25px; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 20px rgba(0,0,0,0.3); z-index: 1000; animation: slideDown 0.3s ease; }
+@keyframes slideDown { from { opacity: 0; transform: translateX(-50%) translateY(-20px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }

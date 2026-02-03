@@ -1,9 +1,12 @@
 import { Calendar } from './components/Calendar'
+import { ErrorBoundary } from './components/ErrorBoundary'
 import './App.css'
 
 function App() {
   return (
-    <Calendar />
+    <ErrorBoundary>
+      <Calendar />
+    </ErrorBoundary>
   )
 }
 

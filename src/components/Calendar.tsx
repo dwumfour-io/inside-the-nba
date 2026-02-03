@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { format, toZonedTime } from 'date-fns-tz';
 import { startOfMonth, endOfMonth, eachDayOfInterval, getDay, addMonths, subMonths, isSameDay, addDays, subDays } from 'date-fns';
 import { schedule } from '../data/schedule';
@@ -6,6 +6,8 @@ import type { Episode } from '../data/schedule';
 import './Calendar.css';
 
 const TIMEZONE = 'America/New_York';
+const CALENDAR_GRID_CELLS = 42; // 6 rows × 7 days
+const SUBSCRIBE_URL = 'https://raw.githubusercontent.com/dwumfour-io/inside-the-nba/main/public/inside-the-nba.ics';
 
 interface CalendarDay {
   date: Date;
@@ -50,8 +52,8 @@ export const Calendar: React.FC = () => {
       });
     });
     
-    // Add days from next month to complete the grid (6 rows = 42 cells)
-    const remainingDays = 42 - days.length;
+    // Add days from next month to complete the grid
+    const remainingDays = CALENDAR_GRID_CELLS - days.length;
     for (let i = 1; i <= remainingDays; i++) {
       const date = addDays(monthEnd, i);
       days.push({
@@ -159,12 +161,12 @@ export const Calendar: React.FC = () => {
     return format(zonedTime, 'h:mm a zzz', { timeZone: TIMEZONE });
   }, []);
 
-  // Subscribe URL for calendar apps
-  const subscribeUrl = 'https://raw.githubusercontent.com/dwumfour-io/inside-the-nba/main/public/inside-the-nba.ics';
+  const [showToast, setShowToast] = useState(false);
   
   const copySubscribeUrl = useCallback(() => {
-    navigator.clipboard.writeText(subscribeUrl);
-    alert('Calendar URL copied! Paste this in your calendar app to subscribe.');
+    navigator.clipboard.writeText(SUBSCRIBE_URL);
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
   }, []);
 
   const monthYear = format(currentDate, 'MMMM yyyy');
@@ -172,6 +174,9 @@ export const Calendar: React.FC = () => {
 
   return (
     <div className="calendar-container">
+      {showToast && (
+        <div className="toast">✅ Calendar URL copied! Paste in your calendar app to subscribe.</div>
+      )}
       <div className="calendar-header">
         <div className="header-top">
           <span className="nba-logo">🏀</span>
