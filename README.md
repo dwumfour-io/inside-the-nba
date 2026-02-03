@@ -1,73 +1,69 @@
-# React + TypeScript + Vite
+# 🏀 Inside the NBA Schedule Calendar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interactive calendar for the **Inside the NBA 2025-26 Season** on ESPN.
 
-Currently, two official plugins are available:
+![Inside the NBA](https://img.shields.io/badge/Inside%20the%20NBA-ESPN-red?style=for-the-badge)
+![React](https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- 📅 **Interactive Calendar** - Navigate months, click dates to see episode details
+- 🔗 **Subscribe to Calendar** - One-click subscribe, easy unsubscribe removes all events
+- 📥 **Download .ics** - Download full season schedule for any calendar app
+- 📅 **Add to Google Calendar** - Direct integration per episode
+- 🍎 **Add to Apple Calendar** - Download single episode .ics
+- ⏰ **Timezone Handling** - All times in Eastern Time (ET) with date-fns-tz
+- 🎨 **Inside the NBA Branding** - Blue/red split design matching official logo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Quick Start
 
-## Expanding the ESLint configuration
+### Development
+```bash
+npm install
+npm run dev
+```
+→ Opens at http://localhost:5173
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Production
+```bash
+npm run build
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Docker
+```bash
+docker compose up --build
 ```
+→ Opens at http://localhost:5173
+
+## 📅 Subscribe to Calendar
+
+**Best option** - subscribe once, unsubscribe removes all events:
+
+```
+https://raw.githubusercontent.com/dwumfour-io/inside-the-nba/main/public/inside-the-nba.ics
+```
+
+**Google Calendar:** Settings → Add calendar → From URL → Paste
+
+**Apple Calendar:** File → New Calendar Subscription → Paste
+
+## 📺 Schedule
+
+27 episodes from October 2025 to April 2026, every Saturday at **6:00 PM - 7:00 PM ET** on ESPN.
+
+## 🛠️ Tech Stack
+
+- **React 18** + TypeScript
+- **Vite** - Fast build tool
+- **date-fns** + date-fns-tz - Timezone handling
+- **Docker** - Containerized deployment
+
+## 📜 License
+
+MIT
+
+---
+
+Made with 🏀 for Inside the NBA fans
